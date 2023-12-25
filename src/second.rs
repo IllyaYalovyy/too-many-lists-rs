@@ -84,6 +84,14 @@ impl<'a, T> Iterator for Iter<'a, T> {
     }
 }
 
+pub struct MutIter<'a, T> {
+    next: Option<&'a mut Node<T>>,
+}
+
+impl<T> List<T> {
+    pub fn 
+}
+
 #[cfg(test)]
 mod test {
     use super::List;
