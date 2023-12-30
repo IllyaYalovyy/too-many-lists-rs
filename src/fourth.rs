@@ -1,5 +1,6 @@
 use std::{rc::Rc, cell::RefCell};
 
+#[derive(Default)]
 pub struct List<T> {
     head: Link<T>,
     tail: Link<T>,
@@ -71,7 +72,7 @@ mod test {
     use super::List;
     #[test]
     fn basics() {
-        let mut list = List::new();
+        let mut list: List<i32> = Default::default();
         assert_eq!(list.pop_front(), None);
 
         list.push_front(1);

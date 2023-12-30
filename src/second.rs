@@ -1,3 +1,6 @@
+use std::iter::IntoIterator;
+
+#[derive(Default)]
 pub struct List<T> {
     head: Link<T>,
 }
@@ -50,8 +53,12 @@ impl<T> Drop for List<T> {
 
 pub struct IntoIter<T>(List<T>);
 
-impl<T> List<T> {
-    pub fn into_iter(self) -> IntoIter<T> {
+impl<T> IntoIterator for List<T> {
+    type Item = T;
+
+    type IntoIter = IntoIter<T>;
+
+    fn into_iter(self) -> Self::IntoIter {
         IntoIter(self)
     }
 }

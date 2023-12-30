@@ -48,6 +48,12 @@ impl Drop for List {
     }
 }
 
+impl Default for List {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 #[cfg(test)]
 mod test {
     use super::List;
